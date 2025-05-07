@@ -25,7 +25,7 @@ int main() {
         std::cin >> baseString;
         try {
             baseInteger = std::stoi(baseString);
-            if baseInteger && heightInteger < 0 {
+            if ((baseInteger && heightInteger) <= 0) {
                 std::cout << "The number should be greater than 0";
             } else {
                 CalculateArea(baseInteger, heightInteger);
