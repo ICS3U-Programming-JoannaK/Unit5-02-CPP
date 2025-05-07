@@ -9,7 +9,7 @@
 #include<string>
 
 void CalculateArea(float base, float height) {
-    float area = 1 / 2 * base * height;
+    float area = (base * height) / 2;
     std::cout << "The area is " << area << "cm^2" << std::endl;
 }
 
@@ -20,20 +20,20 @@ int main() {
     std::cout << "Enter the height of the triangle(cm): ";
     std::cin >> heightString;
     try {
-        heightInteger = std::stoi(heightString);
+        heightInteger = std::stof(heightString);
         std::cout << "Enter the base of the triangle(cm): ";
         std::cin >> baseString;
         try {
-            baseInteger = std::stoi(baseString);
-            if ((baseInteger && heightInteger) <= 0) {
+            baseInteger = std::stof(baseString);
+            if (baseInteger <= 0 || heightInteger <= 0) {
                 std::cout << "The number should be greater than 0";
             } else {
                 CalculateArea(baseInteger, heightInteger);
             }
         } catch (std::invalid_argument) {
-            std::cout << baseString << " is not a number.\n";
+            std::cout << baseString << " is not valid input.\n";
         }
     } catch (std::invalid_argument) {
-        std::cout << heightString << " is not a number.\n";
+        std::cout << heightString << " is not valid input.\n";
     }
 }
