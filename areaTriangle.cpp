@@ -25,7 +25,11 @@ int main() {
         std::cin >> baseString;
         try {
             baseInteger = std::stoi(baseString);
-            CalculateArea(baseInteger, heightInteger);
+            if baseInteger && heightInteger < 0 {
+                std::cout << "The number should be greater than 0";
+            } else {
+                CalculateArea(baseInteger, heightInteger);
+            }
         } catch (std::invalid_argument) {
             std::cout << baseString << " is not a number.\n";
         }
